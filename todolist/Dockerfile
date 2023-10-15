@@ -5,10 +5,8 @@ RUN apt-get install openjdk-17-jdk -y
 
 COPY . .
 
-WORKDIR "/todolist"
-
 RUN apt-get install maven -y
-RUN mvn clean install
+RUN mvn clean install -f ./todolist/pom.xml
 
 FROM openjdk:17-jdk-slim
 EXPOSE 8080
